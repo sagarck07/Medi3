@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.medi3.Fragment.DonateFragment;
+import com.example.medi3.Fragment.EditRegisterUserFragment;
 import com.example.medi3.Fragment.RequestFragment;
 
 public class FragmentsAdapter extends FragmentPagerAdapter {
@@ -17,6 +18,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     public FragmentsAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
+
 
     @NonNull
     @Override

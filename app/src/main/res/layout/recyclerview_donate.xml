@@ -18,6 +18,7 @@
             android:background="@drawable/list_bg"
            >
 
+
             <TextView
                 android:id="@+id/patientName"
                 android:layout_width="match_parent"

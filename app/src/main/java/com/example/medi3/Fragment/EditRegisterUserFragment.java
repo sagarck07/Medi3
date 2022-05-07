@@ -8,35 +8,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.medi3.Models.RequestList;
 import com.example.medi3.R;
-import com.example.medi3.databinding.FragmentDonateBinding;
-import com.example.medi3.databinding.FragmentRequestBinding;
 
-import java.util.ArrayList;
-
-public class RequestFragment extends Fragment {
+public class EditRegisterUserFragment extends Fragment {
 
 
-    public RequestFragment() {
+
+    public EditRegisterUserFragment() {
         // Required empty public constructor
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    FragmentRequestBinding binding;
-
+        }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        ArrayList<RequestList> list = new ArrayList<>();
-
-
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_request, container, false);
+        return inflater.inflate(R.layout.fragment_edit_register_user, container, false);
     }
 }

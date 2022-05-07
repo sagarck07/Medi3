@@ -23,6 +23,7 @@ public class RequestListAdapters extends  RecyclerView.Adapter<RequestListAdapte
     public RequestListAdapters(ArrayList<RequestList> list, Context context) {
         this.list = list;
         this.context = context;
+
     }
 
     @NonNull
@@ -51,12 +52,14 @@ public class RequestListAdapters extends  RecyclerView.Adapter<RequestListAdapte
 
         TextView patient, blood, location, additional;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             patient = itemView.findViewById(R.id.patientName);
             blood = itemView.findViewById(R.id.bloodName);
             location = itemView.findViewById(R.id.locationName);
             additional = itemView.findViewById(R.id.additionalName);
+
 
 
         }

@@ -8,9 +8,13 @@
         <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/drawable/list_bg.xml" value="0.1" />
         <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/donatelist.xml" value="0.264" />
-        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/fragment_donate.xml" value="0.2" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/fragment_donate.xml" value="0.28688524590163933" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/fragment_edit_register_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/fragment_request.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/recyclerview_donate.xml" value="0.264" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/recyclerview_donate.xml" value="0.136" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/recyclerview_register_layout.xml" value="0.264" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/recyclerview_request.xml" value="0.2" />
+        <entry key="..\:/Users/shubh/AndroidStudioProjects/Medi3/app/src/main/res/layout/register_layout.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
