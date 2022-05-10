@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -19,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.example.medi3.Adapters.FragmentsAdapter;
 import com.example.medi3.Adapters.RegisterAdapter;
 import com.example.medi3.Adapters.RequestListAdapters;
 import com.example.medi3.MainActivity2;
@@ -36,14 +38,19 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private CheckBox checkBoxVisibility;
 
 
-    public DonateFragment() {
-        // Required empty public constructor
+    public static DonateFragment newInstance(){
+        DonateFragment f = new DonateFragment();
+        return f;
     }
+
+
+
 
     FragmentDonateBinding binding;
     Button BtnRegister;
     RecyclerView recyclerView;
     Activity context;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +98,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     }
 
+
     public void onStart(){
         super.onStart();
 
@@ -103,9 +111,10 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                     btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            FragmentManager fm = getFragmentManager();
-                            EditRegisterUserFragment fragment = new EditRegisterUserFragment();
-                            getFragmentManager().beginTransaction().replace(R.id.viewPager,fragment).commit();
+                            FragmentTransaction trans = getFragmentManager().beginTransaction();
+                            trans.replace(R.id.donate_frameID, new EditRegisterUserFragment());
+                            trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                            trans.commit();
                         }
                     });
                 }else{
@@ -122,6 +131,8 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         });
 
     }
+
+
 
 
 

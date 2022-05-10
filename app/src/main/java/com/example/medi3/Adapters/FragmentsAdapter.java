@@ -11,12 +11,20 @@ import com.example.medi3.Fragment.EditRegisterUserFragment;
 import com.example.medi3.Fragment.RequestFragment;
 
 public class FragmentsAdapter extends FragmentPagerAdapter {
+    
+    static final int NUM_ITEMS = 2;
+    private Fragment mFragmentAtPos0;
+    private final FragmentManager mFragmentManager;
+
+    
     public FragmentsAdapter(@NonNull FragmentManager fm) {
         super(fm);
+        mFragmentManager = fm;
     }
 
     public FragmentsAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
+        mFragmentManager = fm;
     }
 
 
@@ -28,11 +36,12 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
             case 1: return  new RequestFragment();
             default: return new DonateFragment();
         }
+
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return NUM_ITEMS;
     }
 
     @Nullable

@@ -1,10 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="166dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:background="@color/white"
+        android:padding="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+
+            <TextView
+                android:id="@+id/patientNameReq"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="25dp"
+                android:text="Patient Name"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/bloodNameReq"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_height="38dp"
+                android:text="Blood Group"
+                android:layout_marginTop="-19dp"
+                android:textSize="24dp" />
+
+
+            <TextView
+                android:id="@+id/mobileReq"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_height="38dp"
+                android:text="Mobile"
+                android:layout_marginTop="-11dp"
+
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/locationNameReq"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-11dp"
+                android:layout_height="38dp"
+                android:text="Location"
+                android:textSize="24dp" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
 
 
 

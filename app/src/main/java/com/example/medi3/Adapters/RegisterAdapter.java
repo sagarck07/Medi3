@@ -36,6 +36,7 @@ public class RegisterAdapter extends  RecyclerView.Adapter<RegisterAdapter.ViewH
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(registerContext).inflate(R.layout.fragment_donate, parent, false);
         return new RegisterAdapter.ViewHolder(view);
+
     }
 
     @Override
