@@ -27,7 +27,7 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(LatestContext).inflate(R.layout.fragment_request, parent, false);
+        View view = LayoutInflater.from(LatestContext).inflate(R.layout.recyclerview_request, parent, false);
         return new ViewHolder(view);
 
     }
@@ -45,7 +45,8 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
 
     @Override
     public int getItemCount() {
-        return 0;
+
+        return  list.size();
     }
 
 
@@ -56,8 +57,8 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            NameReq = itemView.findViewById(R.id.patientNameReq);
-            BloodGroupReq = itemView.findViewById(R.id.bloodNameReq);
+            NameReq = itemView.findViewById(R.id.patientNameReqkk);
+            BloodGroupReq = itemView.findViewById(R.id.bloodNameReqkk);
             MobileReq = itemView.findViewById(R.id.mobileReq);
             LocationReq = itemView.findViewById(R.id.locationNameReq);
         }

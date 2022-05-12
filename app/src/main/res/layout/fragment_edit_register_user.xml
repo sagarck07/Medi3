@@ -30,28 +30,28 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/constraint"
+                    android:id="@+id/constraint2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginRight="0dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
                     android:layout_marginBottom="7dp"
                     android:background="@color/white"
                     android:padding="20dp"
-                    app:cardCornerRadius="30dp"
+                    app:cardCornerRadius="10dp"
                     app:cardElevation="4dp">
 
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="0dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -150,11 +150,11 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/donateRecyclerView"
+                    android:id="@+id/btn_donateRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/constraint"
-                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/constraint2"
+                    android:layout_marginTop="4dp"
                     android:nestedScrollingEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

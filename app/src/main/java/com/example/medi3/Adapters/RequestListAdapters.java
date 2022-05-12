@@ -1,15 +1,18 @@
 package com.example.medi3.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medi3.MainActivity2;
 import com.example.medi3.Models.RequestList;
 import com.example.medi3.R;
 
@@ -40,6 +43,16 @@ public class RequestListAdapters extends  RecyclerView.Adapter<RequestListAdapte
         holder.blood.setText(model.getBlood());
         holder.location.setText(model.getLocation());
         holder.additional.setText(model.getAditional());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Please register for donating blood", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
     }
 

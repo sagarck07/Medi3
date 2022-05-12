@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -37,14 +38,10 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CheckBox checkBoxVisibility;
 
-
     public static DonateFragment newInstance(){
         DonateFragment f = new DonateFragment();
         return f;
     }
-
-
-
 
     FragmentDonateBinding binding;
     Button BtnRegister;
@@ -55,10 +52,9 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_donate, container, false);
-
-
 
         ArrayList<RequestList> list = new ArrayList<>();
         list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
@@ -76,16 +72,8 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
         list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
 
-
-
-
-
         // Inflate the layout for this fragment
         binding = FragmentDonateBinding.inflate(inflater, container, false);
-
-
-
-
 
         RequestListAdapters adapters = new RequestListAdapters(list, getContext());
         binding.donateRecyclerView.setAdapter(adapters);
@@ -93,11 +81,8 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.donateRecyclerView.setLayoutManager(layoutManager);
 
-
         return binding.getRoot();
-
     }
-
 
     public void onStart(){
         super.onStart();
@@ -112,9 +97,10 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         @Override
                         public void onClick(View view) {
                             FragmentTransaction trans = getFragmentManager().beginTransaction();
-                            trans.replace(R.id.donate_frameID, new EditRegisterUserFragment());
+                            trans.replace(R.id.Swipe, new EditRegisterUserFragment());
                             trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                             trans.commit();
+
                         }
                     });
                 }else{
@@ -122,10 +108,10 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(context, "Please accept terms and conditions", Toast.LENGTH_SHORT).show();
+
                         }
                     });
                     return;
-
                 }
             }
         });

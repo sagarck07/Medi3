@@ -19,12 +19,8 @@ import java.util.ArrayList;
 
 public class RequestFragment extends Fragment {
 
-
-
     FragmentRequestBinding binding;
     Activity context;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,11 +39,6 @@ public class RequestFragment extends Fragment {
         list.add(new LatestReqModel("Aman Raj Sharma", "O","8383725486","Jharkhand"));
         list.add(new LatestReqModel("Kumar Aditya", "A+","9038362648","Bihar"));
         list.add(new LatestReqModel("Ayush Dubey", "B+","7635383525","Jharkhand"));
-
-
-
-
-
 
         binding = FragmentRequestBinding.inflate(inflater, container, false);
 
