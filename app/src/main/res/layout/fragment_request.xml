@@ -78,8 +78,7 @@
 
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/etbloodNameReq"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                             android:layout_width="match_parent"
                             android:layout_height="59dp"
                             android:layout_alignParentStart="true"
@@ -92,10 +91,11 @@
                             android:hint="Blood"
                             android:textSize="28dp">
 
-                            <com.google.android.material.textfield.TextInputEditText
+                            <AutoCompleteTextView
+                                android:id="@+id/etbloodNameReq"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:inputType="text" />
+                                android:inputType="none" />
                         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -122,11 +122,12 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
 
+
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/etLocationReq"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="59dp"
+                            android:layout_below="@+id/etbloodNameR"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="25dp"
@@ -134,7 +135,34 @@
                             android:layout_marginTop="7dp"
                             android:layout_marginEnd="25dp"
                             android:layout_marginRight="25dp"
-                            android:hint="Location"
+                            android:textSize="28dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/etStateReq"
+                                android:hint="State"
+                                android:paddingLeft="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="text" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/etCityReq"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="59dp"
+                            android:layout_below="@+id/etStateR"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:hint="City"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginRight="25dp"
                             android:textSize="28dp">
 
                             <com.google.android.material.textfield.TextInputEditText
@@ -142,6 +170,7 @@
                                 android:layout_height="match_parent"
                                 android:inputType="text" />
                         </com.google.android.material.textfield.TextInputLayout>
+
 
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +185,7 @@
                             android:layout_marginTop="7dp"
                             android:layout_marginEnd="25dp"
                             android:layout_marginRight="25dp"
-                            android:hint="Additional Info"
+                            android:hint="Additional Info (Optional)"
                             android:textSize="28dp">
 
                             <com.google.android.material.textfield.TextInputEditText
@@ -166,15 +195,55 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
 
-                        <Button
-                            android:id="@+id/btnRequest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="44dp"
-                            android:layout_marginTop="18dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_below="@+id/checkbox"
-                            android:layout_marginLeft="260dp"
-                            android:text="Request" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Is Pickup and Drop provided?"
+                                android:textColor="#C3000000"
+                                android:textSize="19dp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.344"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.354" />
+
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchCompat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.205"
+                                app:layout_constraintStart_toEndOf="@+id/textView10"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.313" />
+
+                            <Button
+                                android:id="@+id/btnRequest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Request"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginBottom="9dp"
+                                app:layout_constraintHorizontal_bias="0.454"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                                app:layout_constraintVertical_bias="0.0" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
                     </LinearLayout>

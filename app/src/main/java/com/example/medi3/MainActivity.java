@@ -5,23 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.palette.graphics.Palette;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.medi3.Adapters.FragmentsAdapter;
 import com.example.medi3.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    Activity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = getParent();
 
-        initToolbar();
+
 
         setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -34,7 +43,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initToolbar(){
+    public void onStart() {
+        super.onStart();
+
+        ImageSlider imageSlider = findViewById(R.id.imageSlider);
+
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+
+        imageSlider.setImageList(slideModels);
+    }
+
+
+        private void initToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() !=null){

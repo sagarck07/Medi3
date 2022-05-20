@@ -48,6 +48,12 @@ public class BtnDonateAdapter extends RecyclerView.Adapter<BtnDonateAdapter.View
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MainActivity2.class);
+                intent.putExtra("patient",model.getBtn_Donate_patient());
+                intent.putExtra("blood",model.getBtn_Donate_blood());
+                intent.putExtra("location",model.getBtn_Donate_location());
+                intent.putExtra("info",model.getBtn_Donate_aditional());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 context.startActivity(intent);
             }
         });

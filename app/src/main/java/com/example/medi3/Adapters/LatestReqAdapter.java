@@ -1,14 +1,17 @@
 package com.example.medi3.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medi3.MainActivity3;
 import com.example.medi3.Models.LatestReqModel;
 import com.example.medi3.R;
 
@@ -41,6 +44,14 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
         holder.MobileReq.setText(model1.getMobileReq());
         holder.LocationReq.setText(model1.getLocationReq());
 
+        holder.status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LatestContext, MainActivity3.class);
+                LatestContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -53,7 +64,7 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView NameReq, BloodGroupReq, MobileReq, LocationReq;
-
+        Button status;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +72,8 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
             BloodGroupReq = itemView.findViewById(R.id.bloodNameReqkk);
             MobileReq = itemView.findViewById(R.id.mobileReq);
             LocationReq = itemView.findViewById(R.id.locationNameReq);
+            status = itemView.findViewById(R.id.btnDonorStatus);
+
         }
     }
 }

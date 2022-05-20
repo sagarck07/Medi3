@@ -46,7 +46,6 @@ public class RegisterAdapter extends  RecyclerView.Adapter<RegisterAdapter.ViewH
 
 
         model.setName(holder.etName.getText().toString());
-        model.setBloodGroup(holder.etBloodGroup.getText().toString());
         model.setState(holder.etState.getText().toString());
         model.setCity(holder.etCity.getText().toString());
         model.setAge(holder.etAge.getText().toString());
@@ -69,7 +68,6 @@ public class RegisterAdapter extends  RecyclerView.Adapter<RegisterAdapter.ViewH
 
             super(itemView);
             etName = itemView.findViewById(R.id.etNameR);
-            etBloodGroup = itemView.findViewById(R.id.etbloodNameR);
             etState = itemView.findViewById(R.id.etStateR);
             etCity = itemView.findViewById(R.id.etCityR);
             etAge = itemView.findViewById(R.id.etAgeR);

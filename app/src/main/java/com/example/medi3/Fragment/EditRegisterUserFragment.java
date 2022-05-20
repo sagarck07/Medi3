@@ -3,6 +3,7 @@ package com.example.medi3.Fragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,14 +17,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.example.medi3.Adapters.BtnDonateAdapter;
 import com.example.medi3.Adapters.RequestListAdapters;
+import com.example.medi3.DonationHistoryActivity;
+import com.example.medi3.MainActivity2;
 import com.example.medi3.Models.BtnDonateModel;
 import com.example.medi3.Models.RequestList;
 import com.example.medi3.R;
 import com.example.medi3.databinding.FragmentDonateBinding;
 import com.example.medi3.databinding.FragmentEditRegisterUserBinding;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
@@ -40,6 +45,8 @@ public class EditRegisterUserFragment extends Fragment {
     Button popupBtn;
     Dialog mDialog;
     Activity context;
+    public TextInputEditText txt;
+
 
 
     @Override
@@ -49,6 +56,8 @@ public class EditRegisterUserFragment extends Fragment {
 
         context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_edit_register_user, container, false);
+
+
 
         ArrayList<BtnDonateModel> list = new ArrayList<>();
         list.add(new BtnDonateModel("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
@@ -87,15 +96,27 @@ public class EditRegisterUserFragment extends Fragment {
 
 
     }
+
+
     public void onStart() {
         super.onStart();
+
+        Button donateHistory = (Button) context.findViewById(R.id.donationHistoryBtn);
+
+        donateHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DonationHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Button popupBtn = (Button) context.findViewById(R.id.btnEdit);
         popupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-
+                DialogFragment dialog = new DialogFragment();
+                dialog.show(getChildFragmentManager(),"DialogFragment");
             }
         });
     }
