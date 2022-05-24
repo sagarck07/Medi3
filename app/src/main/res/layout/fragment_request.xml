@@ -205,40 +205,54 @@
                                 android:id="@+id/textView10"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Is Pickup and Drop provided?"
+                                android:text="Are you providing Pick and Drop facility to Donor?"
+                                android:textAlignment="center"
                                 android:textColor="#C3000000"
                                 android:textSize="19dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.344"
+                                app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.354" />
+                                app:layout_constraintVertical_bias="0.131" />
 
-                            <androidx.appcompat.widget.SwitchCompat
-                                android:id="@+id/switchCompat"
+                            <RadioButton
+                                android:id="@+id/r1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Yes"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.205"
-                                app:layout_constraintStart_toEndOf="@+id/textView10"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.313" />
+                                app:layout_constraintHorizontal_bias="0.377"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                                app:layout_constraintVertical_bias="0.034" />
+
+                            <RadioButton
+                                android:id="@+id/r2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.069"
+                                app:layout_constraintStart_toEndOf="@+id/r1"
+                                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                                app:layout_constraintVertical_bias="0.016" />
 
                             <Button
                                 android:id="@+id/btnRequest"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="9dp"
                                 android:text="Request"
+                                android:layout_marginTop="8dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                android:layout_marginBottom="9dp"
                                 app:layout_constraintHorizontal_bias="0.454"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                                app:layout_constraintTop_toBottomOf="@+id/r2"
                                 app:layout_constraintVertical_bias="0.0" />
 
 

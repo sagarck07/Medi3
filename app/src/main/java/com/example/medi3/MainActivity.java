@@ -39,24 +39,24 @@ public class MainActivity extends AppCompatActivity {
         binding.viewPager.setAdapter(new FragmentsAdapter(getSupportFragmentManager()));
         binding.tablayout.setupWithViewPager(binding.viewPager);
 
-        setTabLayoutAnimation();
 
     }
 
     public void onStart() {
         super.onStart();
 
-        ImageSlider imageSlider = findViewById(R.id.imageSlider);
+        setTabLayoutAnimation();
+
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.pharmacy, null));
-        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
-        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
-        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
-        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
-        slideModels.add(new SlideModel(R.drawable.pharmacy, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy2, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy3, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy4, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy5, null));
+        slideModels.add(new SlideModel(R.drawable.pharmacy6, null));
 
-        imageSlider.setImageList(slideModels);
+        binding.imageSlider.setImageList(slideModels);
     }
 
 
