@@ -8,12 +8,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="335dp"
+        android:layout_height="338dp"
         android:background="@color/white">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -35,10 +33,10 @@
                 android:scaleType="centerCrop"
                 app:layout_anchor="@+id/appBarLayout"
                 app:layout_anchorGravity="center"
-                app:iss_period="1000"
+                app:iss_period="1500"
                 app:iss_auto_cycle="true"
-                app:iss_delay="0"
-                app:iss_corner_radius="10" />
+                app:iss_delay="6000"
+                app:iss_corner_radius="25" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -47,8 +45,25 @@
                 android:background="@color/purple_500"
                 app:layout_collapseMode="pin"
                 android:layout_marginBottom="48dp"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:src="@drawable/medishutter2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Medishutter Blood Wing"
+                    android:textSize="27dp"
+                    android:gravity="end"
+                    android:textColor="#ffffff"
+                    style="@style/TextAppearance.Material3.ActionBar.Title"/>
+
+            </androidx.appcompat.widget.Toolbar>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
@@ -65,13 +80,10 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
