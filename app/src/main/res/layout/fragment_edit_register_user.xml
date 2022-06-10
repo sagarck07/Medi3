@@ -55,109 +55,272 @@
                         android:orientation="vertical">
 
 
-                        <TextView
-                            android:id="@+id/txtNameR"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="361dp"
-                            android:layout_height="51dp"
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/Img"
+                            android:layout_width="136dp"
+                            android:layout_height="149dp"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/white"
+                            android:padding="20dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.012"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.19">
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/donate"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.015"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/txtNameR"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
                             android:text="Shubham Sagar"
                             android:textSize="28dp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0.527"
+                            app:layout_constraintStart_toEndOf="@+id/Img"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.023" />
+                            app:layout_constraintVertical_bias="0.071" />
 
-
-                        <TextView
-                            android:id="@+id/txtbloodNameR"
-                            android:layout_width="361dp"
-                            android:layout_height="51dp"
-                            android:layout_below="@+id/txtNameR"
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView"
+                            android:layout_width="217dp"
+                            android:layout_height="67dp"
                             android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:text="B+"
-                            android:textSize="25dp"
+                            android:background="@color/white"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0.555"
+                            app:layout_constraintStart_toEndOf="@+id/Img"
                             app:layout_constraintTop_toBottomOf="@+id/txtNameR"
-                            app:layout_constraintVertical_bias="0.006" />
+                            app:layout_constraintVertical_bias="0.071">
 
-                        <TextView
-                            android:id="@+id/txtStateR"
-                            android:layout_width="361dp"
-                            android:layout_height="51dp"
-                            android:layout_below="@+id/txtbloodNameR"
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/txtbloodNameR"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="B+"
+                                    android:textColor="@color/black"
+                                    android:textSize="22dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.157"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/tBlood"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="Blood"
+                                    android:textSize="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.093"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtbloodNameR"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+
+                                <TextView
+                                    android:id="@+id/txtAgeR"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="22"
+                                    android:textColor="@color/black"
+                                    android:textSize="22dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.518"
+                                    app:layout_constraintStart_toEndOf="@+id/txtbloodNameR"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/tAge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="Age"
+                                    android:textSize="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.557"
+                                    app:layout_constraintStart_toEndOf="@+id/txtbloodNameR"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtAgeR"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView2"
+                            android:layout_width="217dp"
+                            android:layout_height="67dp"
                             android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:text="Bihar"
-                            android:textSize="25dp"
+                            android:background="@color/white"
+                            android:layout_marginTop="15dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtbloodNameR"
-                            app:layout_constraintVertical_bias="0.0" />
+                            app:layout_constraintHorizontal_bias="0.555"
+                            app:layout_constraintStart_toEndOf="@+id/Img"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView"
+                            app:layout_constraintVertical_bias="0.071">
 
 
-                        <TextView
-                            android:id="@+id/txtCityR"
-                            android:layout_width="361dp"
-                            android:layout_height="51dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:text="Patna"
-                            android:textSize="25dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtAgeR"
-                            app:layout_constraintVertical_bias="0.0" />
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:paddingLeft="10dp"
+                              android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtAgeR"
-                            android:layout_width="361dp"
-                            android:layout_height="51dp"
-                            android:layout_below="@+id/txtCityR"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:text="22"
-                            android:textSize="25dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtStateR"
-                            app:layout_constraintVertical_bias="0.0" />
 
-                        <Button
+                              <TextView
+                                  android:id="@+id/textView9"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Address:"
+                                  android:textColor="@color/black"
+                                  android:textSize="22dp"
+                                  android:textStyle="bold"
+                                  app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintHorizontal_bias="0.173"
+                                  app:layout_constraintStart_toEndOf="@+id/Img"
+                                  app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                             <LinearLayout
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="horizontal">
+
+
+                                 <TextView
+                                     android:id="@+id/txtStateR"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_alignParentStart="true"
+                                     android:layout_alignParentEnd="true"
+                                     android:text="Bihar"
+                                     android:textSize="20dp"
+                                     app:layout_constraintEnd_toEndOf="parent"
+                                     app:layout_constraintHorizontal_bias="0.138"
+                                     app:layout_constraintStart_toEndOf="@+id/Img"
+                                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                                 <TextView
+                                     android:id="@+id/txtCityR"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_alignParentStart="true"
+                                     android:layout_alignParentEnd="true"
+                                     android:text="Patna"
+                                     android:textSize="20dp"
+                                     android:layout_marginLeft="10dp"
+                                     app:layout_constraintEnd_toEndOf="parent"
+                                     app:layout_constraintHorizontal_bias="0.101"
+                                     app:layout_constraintStart_toEndOf="@+id/txtStateR"
+                                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+
+                             </LinearLayout>
+
+
+
+
+
+
+
+                          </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btnEdit"
-                            android:layout_width="130dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtAgeR"
+                            android:layout_marginTop="32dp"
+                            android:background="@drawable/btn_bg"
+                            android:padding="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:paddingLeft="30dp"
+                            android:paddingRight="90dp"
                             android:text="Edit"
+                            android:textColor="@color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.37"
-                            app:layout_constraintStart_toEndOf="@+id/donationHistoryBtn"
-                            app:layout_constraintTop_toBottomOf="@+id/txtCityR"
-                            app:layout_constraintVertical_bias="0.049" />
+                            app:layout_constraintHorizontal_bias="0.898"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/donationHistoryBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:background="@drawable/donation_bg"
+                            android:padding="10dp"
+                            android:layout_marginBottom="10dp"
                             android:text="Donation History"
-                            android:layout_marginBottom="7dp"
+                            android:textColor="@color/purple_500"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.08"
+                            app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtCityR"
-                            app:layout_constraintVertical_bias="0.049" />
+                            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

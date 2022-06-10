@@ -23,10 +23,12 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment {
     TextInputEditText name, blood, state, city, age;
     Button save;
 
+
+
+
     public interface FragmentListner{
         void onInputASent(CharSequence input);
     }
-
 
     @Nullable
     @Override

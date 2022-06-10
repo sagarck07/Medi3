@@ -3,54 +3,63 @@ package com.example.medi3.Models;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterDoner {
-    String Name, BloodGroup, State, City,Age;
+    String mobileno, name, blood_group, state, city,age;
 
-    public RegisterDoner(String Name,String BloodGroup,String State,String City,String Age ) {
-        this.Name = Name;
-        this.BloodGroup = BloodGroup;
-        this.State = State;
-        this.City = City;
-        this.Age = Age;
+    public RegisterDoner(String name, String blood_group, String state, String city, String age, String mobileno) {
+        this.name = name;
+        this.blood_group = blood_group;
+        this.state = state;
+        this.city = city;
+        this.age = age;
+        this.mobileno = mobileno;
+    }
 
+    public String getMobileno() {
+        return mobileno;
+    }
+
+    public void setMobileno(String mobileno) {
+        this.mobileno = mobileno;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getBloodGroup() {
-        return BloodGroup;
+    public String getBlood_group() {
+        return blood_group;
     }
 
-    public void setBloodGroup(String bloodGroup) {
-        BloodGroup = bloodGroup;
+    public void setBlood_group(String blood_group) {
+        this.blood_group = blood_group;
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(String state) {
-        State = state;
+        this.state = state;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(String age) {
-        Age = age;
+        this.age = age;
     }
+
 }

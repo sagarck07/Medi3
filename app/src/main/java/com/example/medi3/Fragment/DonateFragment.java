@@ -1,55 +1,43 @@
 package com.example.medi3.Fragment;
 
 import android.app.Activity;
-import android.content.ClipData;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.medi3.APIs.DonateFragmentAPI;
+import com.example.medi3.APIs.DonateFragmentController;
 import com.example.medi3.APIs.GoogleMapAPI;
-import com.example.medi3.Adapters.FragmentsAdapter;
-import com.example.medi3.Adapters.GoogleMapAPIAdapter;
-import com.example.medi3.Adapters.RegisterAdapter;
 import com.example.medi3.Adapters.RequestListAdapters;
-import com.example.medi3.MainActivity2;
-import com.example.medi3.Models.GoogleApiPojo;
 import com.example.medi3.Models.RegisterDoner;
 import com.example.medi3.Models.RequestList;
 import com.example.medi3.R;
 import com.example.medi3.databinding.FragmentDonateBinding;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
-import io.reactivex.android.plugins.RxAndroidPlugins;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -57,6 +45,14 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CheckBox checkBoxVisibility;
     GoogleMapAPI googleMapAPI;
+
+    AutoCompleteTextView state;
+    TextInputEditText name;
+    TextInputEditText city;
+    TextInputEditText age;
+    String mobileno;
+    AutoCompleteTextView blood_group;
+    String url="http://192.168.50.172:8080/add_donor/";
 
     int number = 0;
 
@@ -85,6 +81,9 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_donate, container, false);
 
+        recyclerView = rootView.findViewById(R.id.donateRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         ArrayList<RequestList> list = new ArrayList<>();
         list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
         list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
@@ -101,21 +100,92 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
         list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
 
+        RequestListAdapters adapters = new RequestListAdapters(list,context);
+        recyclerView.setAdapter(adapters);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+
+        name = rootView.findViewById(R.id.etNameR);
+        state = rootView.findViewById(R.id.etStateR);
+        city = rootView.findViewById(R.id.etCityR);
+        age = rootView.findViewById(R.id.etAgeR);
+        blood_group = rootView.findViewById(R.id.etbloodNameR);
+
+
+        CheckBox checkBox = (CheckBox) rootView.findViewById(R.id.checkbox);
+        ProgressBar pr = (ProgressBar) rootView.findViewById(R.id.Progressbar2);
+        Button btn = (Button) rootView.findViewById(R.id.btnRegister);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+
+                    btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            processdata();
+
+                        }
+                    });
+
+                }else{
+                    btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(context, "Please accept terms and conditions", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+                }
+            }
+        });
 
 
 
 
+        return rootView;
+    }
 
-        // Inflate the layout for this fragment
-        binding = FragmentDonateBinding.inflate(inflater, container, false);
+    public void processdata(){
 
-        RequestListAdapters adapters = new RequestListAdapters(list, getContext());
-        binding.donateRecyclerView.setAdapter(adapters);
+        mobileno = "666666666";
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        binding.donateRecyclerView.setLayoutManager(layoutManager);
+        DonateFragmentAPI donateFragmentAPI = DonateFragmentController.getRetrofit().create(DonateFragmentAPI.class);
+        final RegisterDoner registerDoner = new RegisterDoner(
+                mobileno,
+                age.getText().toString(),
+                blood_group.getText().toString(),
+                city.getText().toString(),
+                name.getText().toString(),
+                state.getText().toString()
+                );
 
-        return binding.getRoot();
+        Call<RegisterDoner> call = donateFragmentAPI.getRegister(registerDoner);
+
+        call.enqueue(new Callback<RegisterDoner>() {
+            @Override
+            public void onResponse(Call<RegisterDoner> call, Response<RegisterDoner> response) {
+
+                FragmentTransaction trans = getFragmentManager().beginTransaction();
+                trans.replace(R.id.Swipe, new EditRegisterUserFragment());
+                trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                trans.commit();
+
+
+            }
+
+            @Override
+            public void onFailure(Call<RegisterDoner> call, Throwable t) {
+                Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     public void onStart(){
@@ -130,41 +200,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         adapterItemsState = new ArrayAdapter<String>(context,R.layout.list_blood_name, states);
         autoCompleteTextViewState.setAdapter(adapterItemsState);
 
-
-
-
-        CheckBox checkBox = (CheckBox) context.findViewById(R.id.checkbox);
-        Button btn = (Button) context.findViewById(R.id.btnRegister);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
-                    btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            FragmentTransaction trans = getFragmentManager().beginTransaction();
-                            trans.replace(R.id.Swipe, new EditRegisterUserFragment());
-                            trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                            trans.commit();
-
-                        }
-                    });
-                }else{
-                    btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Toast.makeText(context, "Please accept terms and conditions", Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-                    return;
-                }
-            }
-        });
-
     }
-
-
 
 
 
@@ -182,6 +218,17 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         }, 10);
+
+    }
+
+
+
+
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
     }
 

@@ -3,6 +3,7 @@ package com.example.medi3;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.palette.graphics.Palette;
 
 import android.app.Activity;
@@ -15,6 +16,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.medi3.Adapters.FragmentsAdapter;
+import com.example.medi3.Fragment.DonateFragment;
 import com.example.medi3.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getParent();
+
 
 
 

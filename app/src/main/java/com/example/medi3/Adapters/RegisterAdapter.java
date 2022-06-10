@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,58 +22,19 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
-public class RegisterAdapter extends  RecyclerView.Adapter<RegisterAdapter.ViewHolder>{
+public class RegisterAdapter{
 
-    ArrayList<RegisterDoner> registerList;
-    Context registerContext;
+    String message;
 
-    public RegisterAdapter(ArrayList<RegisterDoner> registerList, Context registerContext) {
-        this.registerList = registerList;
-        this.registerContext = registerContext;
+    public RegisterAdapter(String message) {
+        this.message = message;
     }
 
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(registerContext).inflate(R.layout.fragment_donate, parent, false);
-        return new RegisterAdapter.ViewHolder(view);
-
+    public String getMessage() {
+        return message;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RegisterDoner model = registerList.get(position);
-
-
-
-        model.setName(holder.etName.getText().toString());
-        model.setState(holder.etState.getText().toString());
-        model.setCity(holder.etCity.getText().toString());
-        model.setAge(holder.etAge.getText().toString());
-
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return registerList.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView patientName, BloodGroup, Location, unitRequired, additionalName;
-        TextInputEditText etName, etBloodGroup, etState, etCity, etAge;
-
-
-        public ViewHolder(@NonNull View itemView) {
-
-            super(itemView);
-            etName = itemView.findViewById(R.id.etNameR);
-            etState = itemView.findViewById(R.id.etStateR);
-            etCity = itemView.findViewById(R.id.etCityR);
-            etAge = itemView.findViewById(R.id.etAgeR);
-
-
-        }
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
