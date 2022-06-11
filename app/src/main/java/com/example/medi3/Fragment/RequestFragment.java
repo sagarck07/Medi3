@@ -113,34 +113,7 @@ public class RequestFragment extends Fragment {
 
 
                 //POST API
-
-                ApiInterface apiInterface = RequestFragmentController.getRetrofit().create(ApiInterface.class);
-                final RequestPatient requestPatient = new RequestPatient(
-                        additional_info.getText().toString(),
-                        bloodgroup.getText().toString(),
-                        city.getText().toString(),
-                        mobileno,
-                        name.getText().toString(),
-                        number_of_units.getText().toString(),
-                        state.getText().toString(),
-                        transportprovide
-                );
-
-                Call<RequestPatient> call = apiInterface.getPatient(requestPatient);
-
-                call.enqueue(new Callback<RequestPatient>() {
-                    @Override
-                    public void onResponse(Call<RequestPatient> call, Response<RequestPatient> response) {
-
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<RequestPatient> call, Throwable t) {
-                        Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                ProcessData();
 
 
             }
@@ -152,6 +125,39 @@ public class RequestFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    //POST API
+    public void ProcessData(){
+
+        ApiInterface apiInterface = RequestFragmentController.getRetrofit().create(ApiInterface.class);
+        final RequestPatient requestPatient = new RequestPatient(
+                additional_info.getText().toString(),
+                bloodgroup.getText().toString(),
+                city.getText().toString(),
+                mobileno,
+                name.getText().toString(),
+                number_of_units.getText().toString(),
+                state.getText().toString(),
+                transportprovide
+        );
+
+        Call<RequestPatient> call = apiInterface.getPatient(requestPatient);
+
+        call.enqueue(new Callback<RequestPatient>() {
+            @Override
+            public void onResponse(Call<RequestPatient> call, Response<RequestPatient> response) {
+
+
+            }
+
+            @Override
+            public void onFailure(Call<RequestPatient> call, Throwable t) {
+                Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
 
