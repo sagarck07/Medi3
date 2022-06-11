@@ -1,6 +1,7 @@
 package com.example.medi3.Fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,9 @@ import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.medi3.APIs.DonateFragmentAPI;
+import com.example.medi3.APIs.ApiInterface;
 import com.example.medi3.APIs.DonateFragmentController;
+import com.example.medi3.APIs.GetPatientListRV;
 import com.example.medi3.APIs.GoogleMapAPI;
 import com.example.medi3.Adapters.RequestListAdapters;
 import com.example.medi3.Models.RegisterDoner;
@@ -81,32 +83,13 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_donate, container, false);
 
+        Intent intent = context.getIntent();
+        mobileno = intent.getStringExtra("message_key");
+
         recyclerView = rootView.findViewById(R.id.donateRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ArrayList<RequestList> list = new ArrayList<>();
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Kumar Aditya","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Adarsh Kumar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Nikhil Kumar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
-        list.add(new RequestList("Aditya Rungta","B+", "Indore", "Madhya Pradesh"));
-        list.add(new RequestList("Shubham Sagar","B+", "Patna", "Bihar"));
-
-        RequestListAdapters adapters = new RequestListAdapters(list,context);
-        recyclerView.setAdapter(adapters);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-        recyclerView.setLayoutManager(layoutManager);
-
-
+        RvAPI();
 
         name = rootView.findViewById(R.id.etNameR);
         state = rootView.findViewById(R.id.etStateR);
@@ -152,11 +135,36 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         return rootView;
     }
 
+
+    public void RvAPI(){
+
+        ApiInterface apiInterface = GetPatientListRV.getRetrofit().create(ApiInterface.class);
+        apiInterface.getPatientRV().enqueue(new Callback<ArrayList<RequestList>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RequestList>> call, Response<ArrayList<RequestList>> response) {
+
+                ArrayList<RequestList> list = response.body();
+                RequestListAdapters adapters = new RequestListAdapters(list);
+
+                recyclerView.setAdapter(adapters);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RequestList>> call, Throwable t) {
+                Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        }
+
+
+
     public void processdata(){
 
-        mobileno = "666666666";
 
-        DonateFragmentAPI donateFragmentAPI = DonateFragmentController.getRetrofit().create(DonateFragmentAPI.class);
+        ApiInterface apiInterface = DonateFragmentController.getRetrofit().create(ApiInterface.class);
         final RegisterDoner registerDoner = new RegisterDoner(
                 mobileno,
                 age.getText().toString(),
@@ -166,7 +174,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                 state.getText().toString()
                 );
 
-        Call<RegisterDoner> call = donateFragmentAPI.getRegister(registerDoner);
+        Call<RegisterDoner> call = apiInterface.getRegister(registerDoner);
 
         call.enqueue(new Callback<RegisterDoner>() {
             @Override

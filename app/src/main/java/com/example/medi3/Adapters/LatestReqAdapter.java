@@ -20,17 +20,17 @@ import java.util.ArrayList;
 public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.ViewHolder> {
 
     ArrayList<LatestReqModel> list;
-    Context LatestContext;
 
-    public LatestReqAdapter(ArrayList<LatestReqModel> list, Context LatestContext){
+
+    public LatestReqAdapter(ArrayList<LatestReqModel> list){
         this.list = list;
-        this.LatestContext = LatestContext;
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(LatestContext).inflate(R.layout.recyclerview_request, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_request, parent, false);
         return new ViewHolder(view);
 
     }
@@ -39,16 +39,16 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         LatestReqModel model1 = list.get(position);
-        holder.NameReq.setText(model1.getNameReq());
-        holder.BloodGroupReq.setText(model1.getBloodGroupReq());
-        holder.MobileReq.setText(model1.getMobileReq());
-        holder.LocationReq.setText(model1.getLocationReq());
+        holder.name.setText(model1.getName());
+        holder.bloodgroup.setText(model1.getBloodgroup());
+        holder.mobileno.setText(model1.getMobileno());
+        holder.state.setText(model1.getState());
 
         holder.status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LatestContext, MainActivity3.class);
-                LatestContext.startActivity(intent);
+                Intent intent = new Intent(view.getContext(), MainActivity3.class);
+                view.getContext().startActivity(intent);
             }
         });
 
@@ -63,15 +63,15 @@ public class LatestReqAdapter extends RecyclerView.Adapter<LatestReqAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView NameReq, BloodGroupReq, MobileReq, LocationReq;
+        TextView name, bloodgroup,mobileno, state;
         Button status;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            NameReq = itemView.findViewById(R.id.patientNameReqkk);
-            BloodGroupReq = itemView.findViewById(R.id.bloodNameReqkk);
-            MobileReq = itemView.findViewById(R.id.mobileReq);
-            LocationReq = itemView.findViewById(R.id.locationNameReq);
+            name = itemView.findViewById(R.id.patientNameReqkk);
+            bloodgroup = itemView.findViewById(R.id.bloodNameReqkk);
+            mobileno = itemView.findViewById(R.id.mobileReq);
+            state = itemView.findViewById(R.id.locationNameReq);
             status = itemView.findViewById(R.id.btnDonorStatus);
 
         }

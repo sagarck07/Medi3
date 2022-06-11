@@ -23,38 +23,32 @@ public class BtnDonateAdapter extends RecyclerView.Adapter<BtnDonateAdapter.View
     ArrayList<BtnDonateModel> list;
     Context context;
 
-    public BtnDonateAdapter(ArrayList<BtnDonateModel> list, Context context) {
+    public BtnDonateAdapter(ArrayList<BtnDonateModel> list) {
         this.list = list;
-        this.context = context;
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_btn_donate, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_btn_donate, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         BtnDonateModel model = list.get(position);
-        holder.btn_donate_patient.setText(model.getBtn_Donate_patient());
-        holder.btn_donate_blood.setText(model.getBtn_Donate_blood());
-        holder.btn_donate_location.setText(model.getBtn_Donate_location());
-        holder.btn_donate_additional.setText(model.getBtn_Donate_aditional());
+        holder.name.setText(model.getName());
+        holder.bloodgroup.setText(model.getBloodgroup());
+        holder.state.setText(model.getState());
+        holder.city.setText(model.getCity());
 
         holder.donateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity2.class);
-                intent.putExtra("patient",model.getBtn_Donate_patient());
-                intent.putExtra("blood",model.getBtn_Donate_blood());
-                intent.putExtra("location",model.getBtn_Donate_location());
-                intent.putExtra("info",model.getBtn_Donate_aditional());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(view.getContext(), MainActivity2.class);
 
-                context.startActivity(intent);
+                view.getContext().startActivity(intent);
             }
         });
 
@@ -67,16 +61,16 @@ public class BtnDonateAdapter extends RecyclerView.Adapter<BtnDonateAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView btn_donate_patient, btn_donate_blood, btn_donate_location, btn_donate_additional;
+        TextView name, bloodgroup, state, city;
         Button donateBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             donateBtn = itemView.findViewById(R.id.donateBtn);
-            btn_donate_patient = itemView.findViewById(R.id.btn_donate_patientName);
-            btn_donate_blood = itemView.findViewById(R.id.btn_donate_bloodName);
-            btn_donate_location = itemView.findViewById(R.id.btn_donate_locationName);
-            btn_donate_additional = itemView.findViewById(R.id.btn_donate_additionalName);
+            name = itemView.findViewById(R.id.btn_donate_patientName);
+            bloodgroup = itemView.findViewById(R.id.btn_donate_bloodName);
+            city = itemView.findViewById(R.id.btn_donate_locationName);
+            state = itemView.findViewById(R.id.btn_donate_additionalName);
 
 
         }

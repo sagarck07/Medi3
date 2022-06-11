@@ -1,44 +1,53 @@
 package com.example.medi3.Models;
 
 public class LatestReqModel {
-    String NameReq, BloodGroupReq, MobileReq, LocationReq;
+    String name, bloodgroup, state, city, mobileno;
 
-    public LatestReqModel(String nameReq, String bloodGroupReq, String mobileReq, String locationReq) {
-        NameReq = nameReq;
-        BloodGroupReq = bloodGroupReq;
-        MobileReq = mobileReq;
-        LocationReq = locationReq;
+    public LatestReqModel(String name, String bloodgroup, String state, String city, String mobileno) {
+        this.name = name;
+        this.bloodgroup = bloodgroup;
+        this.state = state;
+        this.city = city;
+        this.mobileno = mobileno;
     }
 
-    public String getNameReq() {
-        return NameReq;
+    public String getName() {
+        return name;
     }
 
-    public void setNameReq(String nameReq) {
-        NameReq = nameReq;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getBloodGroupReq() {
-        return BloodGroupReq;
+    public String getBloodgroup() {
+        return bloodgroup;
     }
 
-    public void setBloodGroupReq(String bloodGroupReq) {
-        BloodGroupReq = bloodGroupReq;
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
-    public String getMobileReq() {
-        return MobileReq;
+    public String getState() {
+        return state;
     }
 
-    public void setMobileReq(String mobileReq) {
-        MobileReq = mobileReq;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getLocationReq() {
-        return LocationReq;
+    public String getCity() {
+        return city;
     }
 
-    public void setLocationReq(String locationReq) {
-        LocationReq = locationReq;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getMobileno() {
+        return mobileno;
+    }
+
+    public void setMobileno(String mobileno) {
+        this.mobileno = mobileno;
     }
 }

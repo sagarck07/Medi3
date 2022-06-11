@@ -2,44 +2,44 @@ package com.example.medi3.Models;
 
 public class RequestList {
 
-    String patient, blood, location, aditional;
+    String name, bloodgroup, state, city;
 
-    public RequestList(String patient, String blood, String location, String aditional){
-        this.patient = patient;
-        this.blood = blood;
-        this.location = location;
-        this.aditional = aditional;
+    public RequestList(String name, String bloodgroup, String state, String city) {
+        this.name = name;
+        this.bloodgroup = bloodgroup;
+        this.state = state;
+        this.city = city;
     }
 
-    public String getPatient() {
-        return patient;
+    public String getName() {
+        return name;
     }
 
-    public void setPatient(String patient) {
-        this.patient = patient;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getBlood() {
-        return blood;
+    public String getBloodgroup() {
+        return bloodgroup;
     }
 
-    public void setBlood(String blood) {
-        this.blood = blood;
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
-    public String getLocation() {
-        return location;
+    public String getState() {
+        return state;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getAditional() {
-        return aditional;
+    public String getCity() {
+        return city;
     }
 
-    public void setAditional(String aditional) {
-        this.aditional = aditional;
+    public void setCity(String city) {
+        this.city = city;
     }
 }

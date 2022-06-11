@@ -21,33 +21,32 @@ import java.util.ArrayList;
 public class RequestListAdapters extends  RecyclerView.Adapter<RequestListAdapters.ViewHolder>{
 
     ArrayList<RequestList> list;
-    Context context;
 
-    public RequestListAdapters(ArrayList<RequestList> list, Context context) {
+    public RequestListAdapters(ArrayList<RequestList> list ) {
         this.list = list;
-        this.context = context;
 
     }
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_donate, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_donate, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RequestList model = list.get(position);
-        holder.patient.setText(model.getPatient());
-        holder.blood.setText(model.getBlood());
-        holder.location.setText(model.getLocation());
-        holder.additional.setText(model.getAditional());
+        holder.name.setText(model.getName());
+        holder.bloodgroup.setText(model.getBloodgroup());
+        holder.city.setText(model.getCity());
+        holder.state.setText(model.getState());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Please register for donating blood", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Please register for donating blood", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -63,15 +62,15 @@ public class RequestListAdapters extends  RecyclerView.Adapter<RequestListAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView patient, blood, location, additional;
+        TextView name, bloodgroup, state, city;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            patient = itemView.findViewById(R.id.patientName);
-            blood = itemView.findViewById(R.id.bloodName);
-            location = itemView.findViewById(R.id.locationName);
-            additional = itemView.findViewById(R.id.additionalName);
+            name = itemView.findViewById(R.id.patientName);
+            bloodgroup = itemView.findViewById(R.id.bloodName);
+            city = itemView.findViewById(R.id.locationName);
+            state = itemView.findViewById(R.id.additionalName);
 
 
 

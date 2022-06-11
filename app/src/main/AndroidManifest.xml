@@ -17,12 +17,6 @@
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity3"
@@ -32,7 +26,13 @@
             android:exported="false" />
         <activity
             android:name=".MobileActivity"
-            android:exported="false">
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".MainActivity2"

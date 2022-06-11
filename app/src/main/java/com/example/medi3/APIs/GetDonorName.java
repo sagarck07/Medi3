@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GetDonorName {
 
-    private static final String url = "http://192.168.50.111:8080/get_donor/" +
-            "";
+    private static final String url = "http://192.168.50.111:8080/get_donor/565656565/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getRetrofit() {
