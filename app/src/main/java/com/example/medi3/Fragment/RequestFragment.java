@@ -20,13 +20,9 @@ import android.widget.Toast;
 
 import com.example.medi3.APIs.ApiInterface;
 import com.example.medi3.APIs.GetLatestPatientReqRv;
-import com.example.medi3.APIs.GetPatientListRV;
-import com.example.medi3.APIs.RequestFragmentAPI;
 import com.example.medi3.APIs.RequestFragmentController;
 import com.example.medi3.Adapters.LatestReqAdapter;
-import com.example.medi3.Adapters.RequestListAdapters;
 import com.example.medi3.Models.LatestReqModel;
-import com.example.medi3.Models.RequestList;
 import com.example.medi3.Models.RequestPatient;
 import com.example.medi3.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -76,6 +72,7 @@ public class RequestFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.requestRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        //GET API CALL
         RvLatReq();
 
 
@@ -115,7 +112,9 @@ public class RequestFragment extends Fragment {
             public void onClick(View view) {
 
 
-                RequestFragmentAPI requestFragmentAPI = RequestFragmentController.getRetrofit().create(RequestFragmentAPI.class);
+                //POST API
+
+                ApiInterface apiInterface = RequestFragmentController.getRetrofit().create(ApiInterface.class);
                 final RequestPatient requestPatient = new RequestPatient(
                         additional_info.getText().toString(),
                         bloodgroup.getText().toString(),
@@ -127,7 +126,7 @@ public class RequestFragment extends Fragment {
                         transportprovide
                 );
 
-                Call<RequestPatient> call = requestFragmentAPI.getPatient(requestPatient);
+                Call<RequestPatient> call = apiInterface.getPatient(requestPatient);
 
                 call.enqueue(new Callback<RequestPatient>() {
                     @Override
@@ -155,6 +154,8 @@ public class RequestFragment extends Fragment {
         return rootView;
     }
 
+
+    //GET API RecyclerView
     public void RvLatReq(){
 
         ApiInterface apiInterface = GetLatestPatientReqRv.getRetrofit().create(ApiInterface.class);

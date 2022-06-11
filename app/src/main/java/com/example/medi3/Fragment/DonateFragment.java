@@ -89,6 +89,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
         recyclerView = rootView.findViewById(R.id.donateRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        //GET API
         RvAPI();
 
         name = rootView.findViewById(R.id.etNameR);
@@ -111,6 +112,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         @Override
                         public void onClick(View view) {
 
+                            //POST API
                             processdata();
 
                         }
@@ -136,6 +138,8 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
     }
 
 
+
+    //GET API
     public void RvAPI(){
 
         ApiInterface apiInterface = GetPatientListRV.getRetrofit().create(ApiInterface.class);
@@ -161,6 +165,7 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
 
 
+        //POST API
     public void processdata(){
 
 
@@ -195,6 +200,18 @@ public class DonateFragment extends Fragment implements SwipeRefreshLayout.OnRef
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void onStart(){
         super.onStart();

@@ -28,6 +28,9 @@ public interface ApiInterface{
     @POST("/add_donor")
     Call<RegisterDoner> getRegister(@Body RegisterDoner registerDoner);
 
+    @POST("/add_patient")
+    Call<RequestPatient> getPatient(@Body RequestPatient requestPatient);
+
     @GET("/get_donor/{id}")
     Call<EditRegisterUserModel> getdonor(@Path("id") String id);
 
